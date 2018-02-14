@@ -1,0 +1,29 @@
+{
+  "name": "angular2-presta",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SKaDiZZ/angular2-presta"
+  },
+  "author": {
+    "name": "Samir Kahvedzic",
+    "email": "akirapowered@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SKaDiZZ/angular2-presta/issues"
+  },
+  "main": "angular2-presta.umd.js",
+  "module": "angular2-presta.js",
+  "jsnext:main": "angular2-presta.js",
+  "typings": "angular2-presta.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
