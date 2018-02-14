@@ -316,7 +316,7 @@ Get images for other resources using presta-image component
 
 ## Latest updates
 
-### v0.1.11
+### v0.1.12
   - Added presta prefix to interfaces, enums etc.
   - Presta Service is using new HttpClient from now
   - Fixed bugs with presta-image component making it faster and more reliable
