@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "angular2-presta": {
+      "root": "projects/angular2-presta",
+      "sourceRoot": "projects/angular2-presta/src",
+      "projectType": "library",
+      "prefix": "a2p",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular2-presta/tsconfig.lib.json",
+            "project": "projects/angular2-presta/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angular2-presta/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular2-presta/src/test.ts",
+            "tsConfig": "projects/angular2-presta/tsconfig.spec.json",
+            "karmaConfig": "projects/angular2-presta/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular2-presta/tsconfig.lib.json",
+              "projects/angular2-presta/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "presta"

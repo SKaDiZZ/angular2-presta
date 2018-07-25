@@ -1,0 +1,30 @@
+{
+  "name": "angular2-presta",
+  "version": "0.1.16",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SKaDiZZ/angular2-presta"
+  },
+  "author": {
+    "name": "Samir Kahvedzic",
+    "email": "akirapowered@gmail.com",
+    "url": "https://virtuooza.com"
+  },
+  "keywords": [
+    "angular",
+    "presta",
+    "prestashop",
+    "webservice",
+    "api",
+    "client"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SKaDiZZ/angular2-presta/issues"
+  },
+  "peerDependencies": {
+    "@angular/common/http": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}
