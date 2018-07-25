@@ -134,7 +134,7 @@ export class AppComponent implements OnInit {
 For now only **GET** method is supported, no posting or updating data is available.
 
 Option | Type | Description
-_______|______|____________
+-------|------|------------
 **resource** | string | Select type of results: products, categories, customers ...
 **display** | string | Allows you to limit result fields to only those you need, by default it will return all fields
 **filter** | Object | object defining fields and values to filter results by
