@@ -1,8 +1,8 @@
-![angular2-presta](https://imagizer.imageshack.us/v2/888x214q90/922/yZyztX.png)
-
 # angular2-presta
 
 **Angular2Presta** library will help developers writing **Angular** and **Ionic** applications which are using **Prestashop Webservice**.
+
+![angular2-presta](https://imagizer.imageshack.us/v2/888x214q90/922/yZyztX.png)
 
 ## Installation
 
@@ -145,7 +145,7 @@ Option | Type | Description
 ### Get product categories
 
 ```typescript
-query: PrestaQuery = {
+query: Angular2PrestaQuery = {
     resource: 'categories'
   };
 ```
@@ -153,7 +153,7 @@ query: PrestaQuery = {
 ### Get products by category
 
 ```typescript
-query: PrestaQuery = {
+query: Angular2PrestaQuery = {
     resource: 'products',
     filter: {
       id_category_default: '11'
@@ -164,7 +164,7 @@ query: PrestaQuery = {
 ### Get product by id
 
 ```typescript
-query: PrestaQuery = {
+query: Angular2PrestaQuery = {
     resource: 'products',
     filter: {
       id: '1'
@@ -219,7 +219,7 @@ export class AppComponent implements OnInit {
 ### Search categories
 
 ```typescript
-query: PrestaQuery = {
+query: Angular2PrestaQuery = {
     resource: 'categories'
     search: 'dresses'
   };
@@ -318,6 +318,10 @@ Get images for other resources using presta-image component
 - [ ] DELETE requests
 
 ## Changelog
+### v0.1.17
+  - More examples added
+  - Fixed incorrect description on npm website
+
 ### v0.1.16
   - Renamed service, components and interfaces to match Angular naming conventions
   - Added catchError support in service
