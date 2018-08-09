@@ -1,6 +1,6 @@
 # angular2-presta
 
-**Angular2Presta** library will help developers writing **Angular** and **Ionic** applications which are using **Prestashop Webservice**.
+**Angular2Presta** library will help developers writing **Angular** and **Ionic** applications using **Prestashop Webservice**.
 
 ![angular2-presta](https://imagizer.imageshack.us/v2/888x214q90/922/yZyztX.png)
 
@@ -25,6 +25,15 @@ Please check video guide I made on youtube:
 </div>
 
 ## Using angular2-presta with Ionic
+
+Latest version of angular2-presta library is updated to work with Angular 6. Ionic is still using Angular 5.2.11 at time of this release. You will need to use older version of angular2-presta which supports Angular 5 with Ionic application until Ionic is updated to work with Angular 6.
+
+To install angular2-presta 0.1.14:
+```bash
+npm install angular2-presta@0.1.14 --save
+```
+
+You can find documentation for this version on [NPM](https://www.npmjs.com/package/angular2-presta/v/0.1.14)
 
 I made short video how to use angular2-presta with Ionic :
 
@@ -318,6 +327,9 @@ Get images for other resources using presta-image component
 - [ ] DELETE requests
 
 ## Changelog
+### v0.1.18
+  - Updated documentation with directions for Ionic and Angular 5 users
+  
 ### v0.1.17
   - More examples added
   - Fixed incorrect description on npm website
