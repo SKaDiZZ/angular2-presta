@@ -329,7 +329,7 @@ Get images for other resources using presta-image component
 ## Changelog
 ### v0.1.19
   - Updated documentation
-  - Updated dependencies to lates versions
+  - Updated dependencies to latest version
   - Fixed few security issuess reported by npm audit
 
 ### v0.1.18
