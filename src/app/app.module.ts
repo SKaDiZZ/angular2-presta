@@ -5,9 +5,9 @@ import { Angular2PrestaModule, Angular2PrestaConfiguration } from 'angular2-pres
 import { AppComponent } from './app.component';
 
 const a2pConfig: Angular2PrestaConfiguration = {
-  apiKey: 'Y9RJG1CFB28JRPP6YGUPQV53SDCCV61P',
-  imageApiKey: 'LKDHFPDSW6F1KKZ2V6BKZ9QWN4775UKB',
-  shopUrl: 'https://presta.virtuooza.com/api/'
+  apiKey: '',
+  imageApiKey: '',
+  shopUrl: ''
 };
 
 @NgModule({
