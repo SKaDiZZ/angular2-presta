@@ -327,6 +327,9 @@ Get images for other resources using presta-image component
 - [ ] DELETE requests
 
 ## Changelog
+### v0.1.20
+  - Updated dependencies to support Angular 8
+  
 ### v0.1.19
   - Updated documentation
   - Updated dependencies to latest version
