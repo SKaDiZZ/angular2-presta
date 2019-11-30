@@ -24,6 +24,24 @@ Please check video guide I made on youtube:
 
 </div>
 
+### Enable CORS on Nginx
+
+```bash
+<IfModule mod_headers.c>
+   Header always set Access-Control-Allow-Origin "*"
+   Header always set Access-Control-Allow-Headers "Content-Type, Authorization, Io-Format, Accept"
+   Header always set Access-Control-Allow-Methods "GET,POST,HEAD,DELETE,PUT,OPTIONS"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  # Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request
+  RewriteEngine On
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+```
+Thanx @amoncusir for contributing this example.
+
 ## Using angular2-presta with Ionic 3
 
 Latest version of angular2-presta library is updated to work with Angular versions from Angular 6. Ionic 3 is using Angular 5.2.11 at time of this release. If your project is using Ionic 3 you have to use older version of angular2-presta which supports Angular 5. Ionic 4 applications will work fine with latest version of angular2-presta library.
