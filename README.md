@@ -25,7 +25,7 @@ Please check video guide I made on youtube:
 </div>
 
 ### Enable CORS on Nginx
-
+Modify your .htaccess file:
 ```bash
 <IfModule mod_headers.c>
    Header always set Access-Control-Allow-Origin "*"
