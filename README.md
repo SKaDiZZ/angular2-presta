@@ -24,7 +24,7 @@ Please check video guide I made on youtube:
 
 </div>
 
-### Enable CORS on Nginx
+### Enable CORS on Apache server
 Modify your .htaccess file:
 ```bash
 <IfModule mod_headers.c>

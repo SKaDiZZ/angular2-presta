@@ -24,6 +24,24 @@ Please check video guide I made on youtube:
 
 </div>
 
+### Enable CORS on Apache server
+Modify your .htaccess file:
+```bash
+<IfModule mod_headers.c>
+   Header always set Access-Control-Allow-Origin "*"
+   Header always set Access-Control-Allow-Headers "Content-Type, Authorization, Io-Format, Accept"
+   Header always set Access-Control-Allow-Methods "GET,POST,HEAD,DELETE,PUT,OPTIONS"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  # Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request
+  RewriteEngine On
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+```
+Thanx @amoncusir for contributing this example.
+
 ## Using angular2-presta with Ionic 3
 
 Latest version of angular2-presta library is updated to work with Angular versions from Angular 6. Ionic 3 is using Angular 5.2.11 at time of this release. If your project is using Ionic 3 you have to use older version of angular2-presta which supports Angular 5. Ionic 4 applications will work fine with latest version of angular2-presta library.
@@ -327,14 +345,17 @@ Get images for other resources using presta-image component
 - [ ] DELETE requests
 
 ## Changelog
+### v0.1.20
+  - Updated dependencies to support Angular 8
+
 ### v0.1.19
   - Updated documentation
-  - Updated dependencies to lates versions
+  - Updated dependencies to latest version
   - Fixed few security issuess reported by npm audit
 
 ### v0.1.18
   - Updated documentation with directions for Ionic and Angular 5 users
-  
+
 ### v0.1.17
   - More examples added
   - Fixed incorrect description on npm website
