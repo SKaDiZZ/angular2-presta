@@ -2,7 +2,7 @@
 
 **Angular2Presta** library will help developers writing **Angular** and **Ionic** applications using **Prestashop Webservice**.
 
-![angular2-presta](../..//src/assets/a2plogo.png?raw=true "Logo")
+![angular2-presta](https://raw.githubusercontent.com/SKaDiZZ/angular2-presta/master/src/assets/a2plogo.png?raw=true "Logo")
 
 ## Installation
 
