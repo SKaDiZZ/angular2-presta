@@ -17,21 +17,32 @@ import { Angular2PrestaService, Angular2PrestaQuery } from 'angular2-presta';
 })
 export class AppComponent implements OnInit {
 
-  // products observable
+   // products observable
   product$: Observable<any>;
 
-  // Search products for dress
   query: Angular2PrestaQuery = {
-    resource : 'products',
-    search: 'dress'
+     // define resource products, categories ...
+    // check full list http://doc.prestashop.com/display/PS16/Web+service+reference
+    resource: 'products',
+    // return only fields you need
+    display : 'id,id_default_image,name,price,description_short,condition',
+    // filter results
+    filter: {
+      name: 'blouse',
+      condition: 'new'
+    },
+    // sort results
+    sort: 'name_ASC',
+    // limit number of results or define range
+    limit: '1'
   };
 
   // Inject Angular2PrestaService
   constructor(private _service: Angular2PrestaService) {}
 
   ngOnInit() {
-    // Use search function provided by Angular2PrestaService
-    this.product$ = this._service.search(this.query);
+    // Use get function provided by Angular2PrestaService
+    this.product$ = this._service.get(this.query);
   }
 
 }

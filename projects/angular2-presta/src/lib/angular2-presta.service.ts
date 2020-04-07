@@ -72,6 +72,10 @@ export class Angular2PrestaService {
     }
   }
 
+  fetchForm(resource: string): Observable<any> {
+    return this.http.get(`${this.config.shopUrl}${resource}?schema=blank&ws_key=${this.config.apiKey}`, { responseType: 'text' });
+  }
+
   /*
    * [get results from presta shop web service]
    * @param  {PrestaQuery}           q [query object]

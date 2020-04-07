@@ -2,7 +2,7 @@
 
 **Angular2Presta** library will help developers writing **Angular** and **Ionic** applications using **Prestashop Webservice**.
 
-![angular2-presta](https://imagizer.imageshack.us/v2/888x214q90/922/yZyztX.png)
+![angular2-presta](./src/assets/a2plogo.png?raw=true "Logo")
 
 ## Installation
 
@@ -25,7 +25,9 @@ Please check video guide I made on youtube:
 </div>
 
 ### Enable CORS on Apache server
+
 Modify your .htaccess file:
+
 ```bash
 <IfModule mod_headers.c>
    Header always set Access-Control-Allow-Origin "*"
@@ -40,6 +42,7 @@ Modify your .htaccess file:
   RewriteRule ^(.*)$ $1 [R=200,L]
 </IfModule>
 ```
+
 Thanx @amoncusir for contributing this example.
 
 ## Using angular2-presta with Ionic 3
@@ -47,6 +50,7 @@ Thanx @amoncusir for contributing this example.
 Latest version of angular2-presta library is updated to work with Angular versions from Angular 6. Ionic 3 is using Angular 5.2.11 at time of this release. If your project is using Ionic 3 you have to use older version of angular2-presta which supports Angular 5. Ionic 4 applications will work fine with latest version of angular2-presta library.
 
 To install angular2-presta 0.1.14:
+
 ```bash
 npm install angular2-presta@0.1.14 --save
 ```
@@ -66,83 +70,88 @@ I made short video how to use angular2-presta with Ionic :
 Import Angular2PrestaModule and Angular2PrestaConfiguration into your app.module.ts file:
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { Angular2PrestaModule, Angular2PrestaConfiguration } from 'angular2-presta';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import {
+  Angular2PrestaModule,
+  Angular2PrestaConfiguration,
+} from "angular2-presta";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
 const a2pConfig: Angular2PrestaConfiguration = {
-  apiKey: 'YOUR_PRESTA_API_KEY',
-  imageApiKey: 'OPTIONAL_IMAGE_API_KEY',
-  shopUrl: 'https://yourshop.com/api/'
+  apiKey: "YOUR_PRESTA_API_KEY",
+  imageApiKey: "OPTIONAL_IMAGE_API_KEY",
+  shopUrl: "https://yourshop.com/api/",
 };
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    Angular2PrestaModule.forRoot(a2pConfig)
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, Angular2PrestaModule.forRoot(a2pConfig)],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
+
 ## Angular2PrestaConfiguration
+
 To connect your application with your prestashop website you need to provide **Angular2PrestaService** with configuration. This is done by defining **Angular2PrestaConfiguration** object and passing this object to **Angular2PrestaModule** in imports array.
 
-``` typescript
+```typescript
 const a2pConfig: Angular2PrestaConfiguration = {
-  apiKey: 'YOUR_PRESTA_API_KEY',                // prestashop webservice API key
-  imageApiKey: 'OPTIONAL_IMAGE_API_KEY',        // images API key
-  shopUrl: 'https://yourshop.com/api/'          // url of your shop : please use https
+  apiKey: "YOUR_PRESTA_API_KEY", // prestashop webservice API key
+  imageApiKey: "OPTIONAL_IMAGE_API_KEY", // images API key
+  shopUrl: "https://yourshop.com/api/", // url of your shop : please use https
 };
 ```
 
 ## Angular2PrestaService
+
 **Angular2Presta** is actually service library providing methods to call prestashop webservice and return resources based on your query. You can say it is HTTP client for prestaahop webservice.
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
 
 // import service and query
-import { Angular2PrestaService, Angular2PrestaQuery } from 'angular2-presta';
+import { Angular2PrestaService, Angular2PrestaQuery } from "angular2-presta";
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <div *ngFor="let product of product$ | async">
-      <a2p-image [resource]="query.resource" [resourceID]="product.id" [imageID]="product.id_default_image" [size]="'medium'"></a2p-image>
-      <h1 [innerHTML]="product.name"></h1>
-      <p [innerHTML]="product.description_short"></p>
-      <p>{{ product.price | currency }}<p>
-    </div>`,
-  styles: []
+  selector: "app-root",
+  template: ` <div *ngFor="let product of product$ | async">
+    <a2p-image
+      [resource]="query.resource"
+      [resourceID]="product.id"
+      [imageID]="product.id_default_image"
+      [size]="'medium'"
+    ></a2p-image>
+    <h1 [innerHTML]="product.name"></h1>
+    <p [innerHTML]="product.description_short"></p>
+    <p>{{ product.price | currency }}</p>
+    <p></p>
+  </div>`,
+  styles: [],
 })
 export class AppComponent implements OnInit {
-
   // products observable
   product$: Observable<any>;
 
   query: Angular2PrestaQuery = {
-     // define resource products, categories ...
+    // define resource products, categories ...
     // check full list http://doc.prestashop.com/display/PS16/Web+service+reference
-    resource: 'products',
+    resource: "products",
     // return only fields you need
-    display : 'id,id_default_image,name,price,description_short,condition',
+    display: "id,id_default_image,name,price,description_short,condition",
     // filter results
     filter: {
-      name: 'blouse',
-      condition: 'new'
+      name: "blouse",
+      condition: "new",
     },
     // sort results
-    sort: 'name_ASC',
+    sort: "name_ASC",
     // limit number of results or define range
-    limit: '1'
+    limit: "1",
   };
 
   // Inject Angular2PrestaService
@@ -152,7 +161,6 @@ export class AppComponent implements OnInit {
     // Use get function provided by Angular2PrestaService
     this.product$ = this._service.get(this.query);
   }
-
 }
 ```
 
@@ -160,43 +168,43 @@ export class AppComponent implements OnInit {
 
 For now only **GET** method is supported, no posting or updating data is available.
 
-Option | Type | Description
--------|------|------------
-**resource** | string | Select type of results: products, categories, customers ...
-**display** | string | Allows you to limit result fields to only those you need, by default it will return all fields
-**filter** | Object | object defining fields and values to filter results by
-**sort** | string | sort results by: 'id_ASC', 'id_DESC', 'name_ASC', 'name_DESC' ...
-**limit** | string | limit number of results, or define range of results '5', '9,5'
-**search** | string | search term to use for presta web service search
+| Option       | Type   | Description                                                                                    |
+| ------------ | ------ | ---------------------------------------------------------------------------------------------- |
+| **resource** | string | Select type of results: products, categories, customers ...                                    |
+| **display**  | string | Allows you to limit result fields to only those you need, by default it will return all fields |
+| **filter**   | Object | object defining fields and values to filter results by                                         |
+| **sort**     | string | sort results by: 'id_ASC', 'id_DESC', 'name_ASC', 'name_DESC' ...                              |
+| **limit**    | string | limit number of results, or define range of results '5', '9,5'                                 |
+| **search**   | string | search term to use for presta web service search                                               |
 
 ### Get product categories
 
 ```typescript
 query: Angular2PrestaQuery = {
-    resource: 'categories'
-  };
+  resource: "categories",
+};
 ```
 
 ### Get products by category
 
 ```typescript
 query: Angular2PrestaQuery = {
-    resource: 'products',
-    filter: {
-      id_category_default: '11'
-    }
-  };
+  resource: "products",
+  filter: {
+    id_category_default: "11",
+  },
+};
 ```
 
 ### Get product by id
 
 ```typescript
 query: Angular2PrestaQuery = {
-    resource: 'products',
-    filter: {
-      id: '1'
-    }
-  };
+  resource: "products",
+  filter: {
+    id: "1",
+  },
+};
 ```
 
 ## Using search
@@ -204,32 +212,36 @@ query: Angular2PrestaQuery = {
 Search Query can accept **search** and **resource** fields. By default search will return list of products if no other resource is defined.
 
 ```typescript
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
 
 // import service and query
-import { Angular2PrestaService, Angular2PrestaQuery } from 'angular2-presta';
+import { Angular2PrestaService, Angular2PrestaQuery } from "angular2-presta";
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <div *ngFor="let product of product$ | async">
-      <a2p-image [resource]="query.resource" [resourceID]="product.id" [imageID]="product.id_default_image" [size]="'medium'"></a2p-image>
-      <h1 [innerHTML]="product.name"></h1>
-      <p [innerHTML]="product.description_short"></p>
-      <p>{{ product.price | currency }}<p>
-    </div>`,
-  styles: []
+  selector: "app-root",
+  template: ` <div *ngFor="let product of product$ | async">
+    <a2p-image
+      [resource]="query.resource"
+      [resourceID]="product.id"
+      [imageID]="product.id_default_image"
+      [size]="'medium'"
+    ></a2p-image>
+    <h1 [innerHTML]="product.name"></h1>
+    <p [innerHTML]="product.description_short"></p>
+    <p>{{ product.price | currency }}</p>
+    <p></p>
+  </div>`,
+  styles: [],
 })
 export class AppComponent implements OnInit {
-
   // products observable
   product$: Observable<any>;
 
   // Search products for dress
   query: Angular2PrestaQuery = {
-    resource : 'products',
-    search: 'dress'
+    resource: "products",
+    search: "dress",
   };
 
   // Inject Angular2PrestaService
@@ -239,7 +251,6 @@ export class AppComponent implements OnInit {
     // Use search function provided by Angular2PrestaService
     this.product$ = this._service.search(this.query);
   }
-
 }
 ```
 
@@ -257,11 +268,12 @@ query: Angular2PrestaQuery = {
 Some of prestashop webservice results come with html tags included to remove tags you can use **innerHtml** directive.
 
 ```html
-  <li *ngFor="let product of product$ | async">
-    <h1 [innerHTML]="product.name"></h1>
-    <p [innerHTML]="product.description_short"></p>
-    <p>{{ product.price | currency }}<p>
-  </li>
+<li *ngFor="let product of product$ | async">
+  <h1 [innerHTML]="product.name"></h1>
+  <p [innerHTML]="product.description_short"></p>
+  <p>{{ product.price | currency }}</p>
+  <p></p>
+</li>
 ```
 
 ## Working with images
@@ -273,50 +285,64 @@ Include your images **API KEY** into **Angular2PrestaConfiguration** object in y
 ```typescript
 // Add your presta web service api key and shop url
 const a2pConfig: Angular2PrestaConfiguration = {
-  apiKey: 'YOUR_PRESTA_API_KEY',
-  imageApiKey: 'YOUR_PRESTA_API_KEY', // ApiKey only with images GET permissions for security reasons
-  shopUrl: 'https://yourshop.com/api/' // Please use https
-}
+  apiKey: "YOUR_PRESTA_API_KEY",
+  imageApiKey: "YOUR_PRESTA_API_KEY", // ApiKey only with images GET permissions for security reasons
+  shopUrl: "https://yourshop.com/api/", // Please use https
+};
 ```
 
 You can use **a2p-image** component to output product images. **Angular2PrestaImageComponent** has few inputs. It will use data from them to construct image url to fetch images and display them in your application.
 
 ## Angular2PrestaImageComponent
+
 ## @Inputs
-  - **resource**: string -> for which you want to get image available are
-      - general : General shop images
-      - products : Product images
-      - categories : Category images
-      - customizations : Customization images
-      - manufacturers : Manufacturer images
-      - suppliers : Supplier images
-      - stores : Store images
 
-  - **resourceID**: number -> unique resource ID for example product or category ID
+- **resource**: string -> for which you want to get image available are
 
-  - **imageID**: number -> image ID is required for product images because products have more then one image for other resource images you don't need to define it
+  - general : General shop images
+  - products : Product images
+  - categories : Category images
+  - customizations : Customization images
+  - manufacturers : Manufacturer images
+  - suppliers : Supplier images
+  - stores : Store images
 
-  - **size** string -> define one of available image sizes ( cart, small, medium, large,thickbox, home, category). Size is optional and if you leave it undefined component will display large images by default.
+- **resourceID**: number -> unique resource ID for example product or category ID
+
+- **imageID**: number -> image ID is required for product images because products have more then one image for other resource images you don't need to define it
+
+- **size** string -> define one of available image sizes ( cart, small, medium, large,thickbox, home, category). Size is optional and if you leave it undefined component will display large images by default.
 
 Get product images in your html template using **a2p-image** component:
 
 ```html
-  <li *ngFor="let product of product$ | async">
+<li *ngFor="let product of product$ | async">
+  <!-- use presta-img component to get products default image and display it as large image -->
+  <a2p-image
+    [resource]="query.resource"
+    [resourceID]="product.id"
+    [imageID]="product.id_default_image"
+    [size]="'medium'"
+  ></a2p-image>
 
-    <!-- use presta-img component to get products default image and display it as large image -->
-    <a2p-image [resource]="query.resource" [resourceID]="product.id" [imageID]="product.id_default_image" [size]="'medium'"></a2p-image>
+  <h1 [innerHTML]="product.name"></h1>
+  <p [innerHTML]="product.description_short"></p>
+  <p>{{ product.price | currency }}</p>
+  <p>
+    <!-- get all images for this product and use small image size -->
+  </p>
 
-    <h1 [innerHTML]="product.name"></h1>
-    <p [innerHTML]="product.description_short"></p>
-    <p>{{ product.price | currency }}<p>
-
-        <!-- get all images for this product and use small image size -->
-        <ul *ngIf="product.associations.images">
-          <li *ngFor="let image of product.associations.images">
-            <a2p-image [resource]="query.resource" [resourceID]="product.id" [imageID]="product.id" [size]="'small'"></a2p-image>
-          </li>
-        </ul>
-  </li>
+  <ul *ngIf="product.associations.images">
+    <li *ngFor="let image of product.associations.images">
+      <a2p-image
+        [resource]="query.resource"
+        [resourceID]="product.id"
+        [imageID]="product.id"
+        [size]="'small'"
+      ></a2p-image>
+    </li>
+  </ul>
+</li>
 ```
 
 Get images for other resources using presta-image component
@@ -345,60 +371,78 @@ Get images for other resources using presta-image component
 - [ ] DELETE requests
 
 ## Changelog
+
+### v0.1.21
+
+- Security update
+
 ### v0.1.20
-  - Updated dependencies to support Angular 8
-  
+
+- Updated dependencies to support Angular 8
+
 ### v0.1.19
-  - Updated documentation
-  - Updated dependencies to latest version
-  - Fixed few security issuess reported by npm audit
+
+- Updated documentation
+- Updated dependencies to latest version
+- Fixed few security issuess reported by npm audit
 
 ### v0.1.18
-  - Updated documentation with directions for Ionic and Angular 5 users
-  
+
+- Updated documentation with directions for Ionic and Angular 5 users
+
 ### v0.1.17
-  - More examples added
-  - Fixed incorrect description on npm website
+
+- More examples added
+- Fixed incorrect description on npm website
 
 ### v0.1.16
-  - Renamed service, components and interfaces to match Angular naming conventions
-  - Added catchError support in service
-  - Updated and fixed documentation
+
+- Renamed service, components and interfaces to match Angular naming conventions
+- Added catchError support in service
+- Updated and fixed documentation
 
 ### v0.1.15
-  - Fixed few security issues
-  - Upgraded to support Angular 6
-  - Updated readme examples
+
+- Fixed few security issues
+- Upgraded to support Angular 6
+- Updated readme examples
 
 ### v0.1.14
-  - Added presta prefix to interfaces, enums etc.
-  - Presta Service is using new HttpClient from now
-  - Fixed bugs with presta-image component making it faster and more reliable
-  - Updated readme with new examples
+
+- Added presta prefix to interfaces, enums etc.
+- Presta Service is using new HttpClient from now
+- Fixed bugs with presta-image component making it faster and more reliable
+- Updated readme with new examples
 
 ### v0.1.9
-  - Upadated presta-img component for better image loading
-  - presta-img now requires image size to be defined using ImageSize enum values to reduce errors
-  - All packages updated
-  - Better error catching
-  - Tested with Prestashop 1.7
+
+- Upadated presta-img component for better image loading
+- presta-img now requires image size to be defined using ImageSize enum values to reduce errors
+- All packages updated
+- Better error catching
+- Tested with Prestashop 1.7
 
 ### v0.1.7
-  - Fixed module exports
-  - Documentation improved
+
+- Fixed module exports
+- Documentation improved
 
 ### v0.1.6
-  - Added images support by new PrestaImage component
-  - Fixed limit not working
+
+- Added images support by new PrestaImage component
+- Fixed limit not working
 
 ### v0.1.4 - v0.1.5
-  - Updated documentation
+
+- Updated documentation
 
 ### v0.1.3
-  - Added support for search, code optimized, many fixes
+
+- Added support for search, code optimized, many fixes
 
 ### v0.1.2
-  - Added support for more then one filter
+
+- Added support for more then one filter
 
 ## Aditional resources
 
