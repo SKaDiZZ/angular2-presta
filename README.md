@@ -368,9 +368,9 @@ export class AppComponent implements OnInit {
   // Inject Angular2PrestaService
   constructor(private _service: Angular2PrestaService) {}
 
-  ngOnInit() {
+  deleteProduct(productId: number) {
     // Delete resource
-    this._service.delete("products", 21).subscribe();
+    this._service.delete("products", productId).subscribe();
   }
 }
 ```
