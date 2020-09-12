@@ -361,6 +361,20 @@ Get images for other resources using presta-image component
 <a2p-image [resource]="'manufacturers'" [resourceID]="1"></a2p-image>
 ```
 
+## Delete resource
+
+```typescript
+export class AppComponent implements OnInit {
+  // Inject Angular2PrestaService
+  constructor(private _service: Angular2PrestaService) {}
+
+  ngOnInit() {
+    // Delete resource
+    this._service.delete("products", 21).subscribe();
+  }
+}
+```
+
 ## Roadmap
 
 - [x] GET requests, filtering, sorting
@@ -368,9 +382,15 @@ Get images for other resources using presta-image component
 - [x] IMAGES support
 - [ ] POST requests
 - [ ] UPDATE requests
-- [ ] DELETE requests
+- [x] DELETE requests
 
 ## Changelog
+
+### v0.1.22
+
+- Delete added to angular2-presta service, now you can delete resources by passing resource name and resource id
+- Updated NPM dependencies
+- Security fixes
 
 ### v0.1.21
 
