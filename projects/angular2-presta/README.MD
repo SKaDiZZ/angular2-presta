@@ -386,6 +386,11 @@ export class AppComponent implements OnInit {
 
 ## Changelog
 
+### v0.1.23
+
+- Updated NPM dependencies
+- Security fixes
+
 ### v0.1.22
 
 - Delete added to angular2-presta service, now you can delete resources by passing resource name and resource id

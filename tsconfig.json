@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "downlevelIteration": true,
@@ -11,20 +14,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "angular2-presta": [
-        "dist/angular2-presta"
-      ],
-      "angular2-presta/*": [
-        "dist/angular2-presta/*"
-      ]
+      "angular2-presta": ["dist/angular2-presta"],
+      "angular2-presta/*": ["dist/angular2-presta/*"]
     }
   }
 }
