@@ -1,7 +1,8 @@
 {
   "compileOnSave": false,
   "angularCompilerOptions": {
-    "enableIvy": true
+    "enableIvy": true,
+    "compilationMode": "partial"
   },
   "compilerOptions": {
     "baseUrl": "./",
@@ -13,20 +14,11 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "angular2-presta": [
-        "dist/angular2-presta"
-      ],
-      "angular2-presta/*": [
-        "dist/angular2-presta/*"
-      ]
+      "angular2-presta": ["dist/angular2-presta"],
+      "angular2-presta/*": ["dist/angular2-presta/*"]
     },
     "useDefineForClassFields": false
   }
