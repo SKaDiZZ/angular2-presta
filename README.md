@@ -386,6 +386,11 @@ export class AppComponent implements OnInit {
 
 ## Changelog
 
+### v0.1.26
+
+- Updated to Angular 15
+- Security fixes for packages
+
 ### v0.1.25
 
 - Updated to Angular 12
