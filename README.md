@@ -126,8 +126,8 @@ import { Angular2PrestaService, Angular2PrestaQuery } from "angular2-presta";
       [imageID]="product.id_default_image"
       [size]="'medium'"
     ></a2p-image>
-    <h1 [innerHTML]="product.name"></h1>
-    <p [innerHTML]="product.description_short"></p>
+    <h1 [innerHTML]="product.name[0].value"></h1>
+    <p [innerHTML]="product.description_short[0].value"></p>
     <p>{{ product.price | currency }}</p>
     <p></p>
   </div>`,
@@ -151,7 +151,7 @@ export class AppComponent implements OnInit {
     // sort results
     sort: "name_ASC",
     // limit number of results or define range
-    limit: "1",
+    limit: "10",
   };
 
   // Inject Angular2PrestaService
@@ -227,8 +227,8 @@ import { Angular2PrestaService, Angular2PrestaQuery } from "angular2-presta";
       [imageID]="product.id_default_image"
       [size]="'medium'"
     ></a2p-image>
-    <h1 [innerHTML]="product.name"></h1>
-    <p [innerHTML]="product.description_short"></p>
+    <h1 [innerHTML]="product.name[0].value"></h1>
+    <p [innerHTML]="product.description_short[0].value"></p>
     <p>{{ product.price | currency }}</p>
     <p></p>
   </div>`,
@@ -269,8 +269,8 @@ Some of prestashop webservice results come with html tags included to remove tag
 
 ```html
 <li *ngFor="let product of product$ | async">
-  <h1 [innerHTML]="product.name"></h1>
-  <p [innerHTML]="product.description_short"></p>
+  <h1 [innerHTML]="product.name[0].value"></h1>
+  <p [innerHTML]="product.description_short[0].value"></p>
   <p>{{ product.price | currency }}</p>
   <p></p>
 </li>
@@ -325,8 +325,8 @@ Get product images in your html template using **a2p-image** component:
     [size]="'medium'"
   ></a2p-image>
 
-  <h1 [innerHTML]="product.name"></h1>
-  <p [innerHTML]="product.description_short"></p>
+  <h1 [innerHTML]="product.name[0].value"></h1>
+  <p [innerHTML]="product.description_short[0].value"></p>
   <p>{{ product.price | currency }}</p>
   <p>
     <!-- get all images for this product and use small image size -->
